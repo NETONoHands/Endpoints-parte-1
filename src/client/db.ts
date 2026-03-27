@@ -5,6 +5,12 @@ type User = {
   password: string;
 };
 
+interface CreateUser {
+  name: string,
+  email: string,
+  password: string
+};
+
 const db = () => {
   const database: User[] = [{
     id: 1,
@@ -35,7 +41,7 @@ const db = () => {
       return user;
     },
     findAll: () => database,
-    create: (user: User) => {
+    create: (user: CreateUser): User => {
       const newUser = {
         id: database.length + 1,
         name: user.name,
